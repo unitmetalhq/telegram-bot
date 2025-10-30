@@ -1,0 +1,22 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "NODE_ENV=production bun src/index.ts",
+    "lint": "bun x eslint",
+    "lint:fix": "bun lint --fix"
+  },
+  "dependencies": {
+    "@verrou/core": "^0.5.1",
+    "env-var": "^7.5.0",
+    "gramio": "^0.4.10",
+    "viem": "^2.38.5"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.2",
+    "@types/bun": "^1.2.21",
+    "eslint": "^9.35.0",
+    "typescript": "^5.9.2"
+  }
+}
