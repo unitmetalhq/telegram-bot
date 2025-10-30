@@ -16,18 +16,18 @@ export const bot = new Bot(config.BOT_TOKEN)
 
 // price command
 bot.command("price", async (context) => {
+  // make sure it's eth only
   if (context.args === "eth") {
     const priceData = await publicClient.readContract({
-      address: "0x0000000000cDC1F8d393415455E382c30FBc0a84",
-      abi: checkTheChainAbi,
-      functionName: "checkPrice",
-      args: ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
+      address: "0x0000000000cDC1F8d393415455E382c30FBc0a84", // CheckTheChain contract address
+      abi: checkTheChainAbi, // CheckTheChain contract abi
+      functionName: "checkPrice", // checkPrice function
+      args: ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"], // WETH address
     })
     return context.send(`🔖 Ethereum[ETH]\n\n💰 ${priceData[1]}
     `)
   }
 
-  return context.send(
-    `Only eth is supported for now`,
-  )
+  // if it's not eth, send an error
+  return context.send("Only eth is supported for now")
 })
