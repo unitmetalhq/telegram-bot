@@ -23,7 +23,8 @@ bot.command("price", async (context) => {
       functionName: "checkPrice",
       args: ["0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"],
     })
-    return context.send(`${priceData[1]}`)
+    return context.send(`🔖 Ethereum[ETH]\n\n💰 ${priceData[1]}
+    `)
   }
 
   return context.send(
